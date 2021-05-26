@@ -1,0 +1,82 @@
+<div class="row text-center">
+  <h3 class="display-6 text-info">
+    <strong>Issue List - {{ formTitle }}</strong>
+  </h3>
+  <div class="col-md-10">
+    <table class="table table-bordered text-center">
+      <thead>
+        <tr>
+          <th class="text-danger" scope="col">Issue Description</th>
+          <th class="text-danger" scope="col">Issue Severity</th>
+          <th class="text-danger" scope="col">Issue Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let issue of issues">
+          <td class="text-primary">{{ issue.issueDescription }}</td>
+          <td class="text-primary">{{ issue.issueSeverity }}</td>
+          <td class="text-primary">{{ issue.issueStatus }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10">
+    <form class="m-2">
+      <div class="form-floating m-2">
+        <input
+          type="text"
+          name="issueDescription"
+          id="issueDescription"
+          class="form-control"
+          placeholder="Enter Issue Description"
+          [(ngModel)]="issueDescription"
+        />
+        <label for="issueDescription" class="text-primary">Description</label>
+      </div>
+      <div class="form-floating m-2">
+        <select
+          id="issueSeverity"
+          name="issueSeverity"
+          class="form-select form-select-md text-primary"
+          [(ngModel)]="issueSeverity"
+        >
+          <option label="-- Choose Severity --" disabled></option>
+          <option
+            *ngFor="let severity of severityData; let i = index"
+            [ngValue]="severity"
+          >
+            {{ severity }}
+          </option>
+        </select>
+        <label for="issueSeverity" class="text-primary">Severity</label>
+      </div>
+
+      <div class="form-check form-check-inline mb-2">
+        <label class="text-primary">Status:</label>
+        <label
+          *ngFor="let status of statusData; let i = index"
+          class="form-check-label text-primary"
+        >
+          <input
+            type="radio"
+            name="status"
+            class="m-2"
+            id="status{{ i }}"
+            [value]="status"
+            [(ngModel)]="issueStatus"
+          />{{ status }}
+        </label>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary btn-block w-100"
+        (click)="onFormSubmit()"
+      >
+        Add Issue
+      </button>
+    </form>
+    <hr />
+  </div>
+</div>

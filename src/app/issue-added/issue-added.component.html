@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-10">
+    <h3 class="display-6 text-center">
+      <strong class="text-warning"
+        >Demonstration of Built In Directives And Data Binding</strong
+      >
+    </h3>
+    <p class="text-success" *ngIf="addedIssue.issueStatus">
+      <strong
+        >Recently Added Issue: {{ addedIssue.issueDescription }},
+        {{ addedIssue.issueSeverity }}, {{ addedIssue.issueStatus }}</strong
+      >
+    </p>
+    <hr />
+  </div>
+</div>
