@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Issue } from '../issue.modal';
+import { Issue } from '../../issue.modal';
 
 @Component({
   selector: 'app-issue-added',
@@ -7,7 +7,7 @@ import { Issue } from '../issue.modal';
   styleUrls: ['./issue-added.component.scss'],
 })
 export class IssueAddedComponent implements OnInit {
-  @Input() addedIssue: Issue = new Issue('', '', '');
+  @Input() addedIssue: Issue = new Issue('', '', '', '');
 
   constructor() {}
 

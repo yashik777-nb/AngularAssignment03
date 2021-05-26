@@ -10,7 +10,7 @@ export class AppComponent {
   appIssue: Issue;
 
   constructor() {
-    this.appIssue = new Issue('', '', '');
+    this.appIssue = new Issue('', '', '', '');
   }
 
   newIssueEmitted(issueData: Issue) {
